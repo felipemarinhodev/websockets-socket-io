@@ -7,9 +7,9 @@ io.on("connection", (socket) => {
         socket.join(documentName);
     });
 
-    socket.on("texto_editor", (text) => {
+    socket.on("texto_editor", (text, documentName) => {
         // socket.broadcast.emit("texto_editor_clientes", text); // emite para todos exceto para quem foi o emissor.
 
-        socket.to("JavaScript").emit("texto_editor_clientes", text);
+        socket.to(documentName).emit("texto_editor_clientes", text);
     })
 })
