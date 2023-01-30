@@ -1,4 +1,10 @@
-import { addDocument, findDocument, getDocuments, updateDocument } from "./documentsDB.js";
+import {
+    addDocument,
+    findDocument,
+    getDocuments,
+    removeDocument,
+    updateDocument
+} from "./documentsDB.js";
 import io from "./server.js";
 
 io.on("connection", (socket) => {
@@ -36,4 +42,8 @@ io.on("connection", (socket) => {
             socket.to(documentName).emit("texto_editor_clientes", text);
         }
     })
+
+    socket.on("excluir_documento", async (name) => {
+        return await removeDocument(name);
+    });
 })

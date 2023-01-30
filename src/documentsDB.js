@@ -22,3 +22,7 @@ export function updateDocument(name, text) {
 export function getDocuments() {
     return documentsCollection.find().toArray();
 }
+
+export function removeDocument(name) {
+    return documentsCollection.deleteOne({ name })
+}
