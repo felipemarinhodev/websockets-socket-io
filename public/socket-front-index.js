@@ -8,3 +8,11 @@ socket.emit("obter_documentos", (documents) => {
         insertDocumentLink(document.name)
     });
 });
+
+socket.on("adicionar_documento_interface", (name) => {
+    insertDocumentLink(name);
+})
+
+export function addDocument(name) {
+    socket.emit("adicionar_documento", name);
+}

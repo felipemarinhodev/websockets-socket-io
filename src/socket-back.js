@@ -1,4 +1,4 @@
-import { findDocument, getDocuments, updateDocument } from "./documentsDB.js";
+import { addDocument, findDocument, getDocuments, updateDocument } from "./documentsDB.js";
 import io from "./server.js";
 
 io.on("connection", (socket) => {
@@ -16,6 +16,13 @@ io.on("connection", (socket) => {
             returnText(document.text)
         }
     });
+
+    socket.on("adicionar_documento", async (name) => {
+        const result = await addDocument(name);
+        if (result.acknowledged) {
+            io.emit("adicionar_documento_interface", name);
+        }
+    })
 
     socket.on("texto_editor", async (text, documentName) => {
         const update = await updateDocument(documentName, text);

@@ -1,5 +1,9 @@
 import { documentsCollection } from "./dbConnect.js";
 
+export function addDocument(name) {
+    return documentsCollection.insertOne({ name, text: '' })
+}
+
 export function findDocument(name) {
     return documentsCollection.findOne({ name });
 }
