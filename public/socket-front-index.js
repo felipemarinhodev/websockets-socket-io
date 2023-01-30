@@ -3,7 +3,6 @@ import { insertDocumentLink } from "./index.js";
 const socket = io();
 
 socket.emit("obter_documentos", (documents) => {
-    console.log(documents);
     documents.forEach(document => {
         insertDocumentLink(document.name)
     });
@@ -11,6 +10,10 @@ socket.emit("obter_documentos", (documents) => {
 
 socket.on("adicionar_documento_interface", (name) => {
     insertDocumentLink(name);
+})
+
+socket.on("documento_existente", (name) => {
+    alert(`O documento ${name} já existe!`);
 })
 
 export function addDocument(name) {
