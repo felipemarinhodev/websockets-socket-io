@@ -14,3 +14,7 @@ export function updateDocument(name, text) {
     })
     return update;
 }
+
+export function getDocuments() {
+    return documentsCollection.find().toArray();
+}
