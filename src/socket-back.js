@@ -11,7 +11,6 @@ io.on("connection", (socket) => {
 
     socket.on("obter_documentos", async (giveBackDocuments) => {
         const documents = await getDocuments();
-        console.log('socket-back', documents);
         giveBackDocuments(documents);
     })
 
