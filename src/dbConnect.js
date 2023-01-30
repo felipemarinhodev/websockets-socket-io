@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const client = new MongoClient("mongodb+srv://alura:iZBpNSzNGwMcbe1u@alura.7durtf7.mongodb.net/?retryWrites=true&w=majority");
+const client = new MongoClient("mongodb+srv://alura:<password>@alura.7durtf7.mongodb.net/?retryWrites=true&w=majority");
 
 export let documentsCollection;
 
