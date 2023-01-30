@@ -12,8 +12,17 @@ form.addEventListener("submit", (event) => {
 
 export function insertDocumentLink(documentName) {
     documentsList.innerHTML += `
-        <a href="documento.html?nome=${documentName}" class="list-group-item list-group-item-action">
+        <a
+            href="documento.html?nome=${documentName}"
+            class="list-group-item list-group-item-action"
+            id="document-${documentName}"
+        >
             ${documentName}
         </a>
     `;
+}
+
+export function removeDocumentLink(name) {
+    const element = document.getElementById(`document-${name}`);
+    documentsList.removeChild(element)
 }

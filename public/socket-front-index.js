@@ -1,4 +1,4 @@
-import { insertDocumentLink } from "./index.js";
+import { insertDocumentLink, removeDocumentLink } from "./index.js";
 
 const socket = io();
 
@@ -19,3 +19,7 @@ socket.on("documento_existente", (name) => {
 export function addDocument(name) {
     socket.emit("adicionar_documento", name);
 }
+
+socket.on("excluir_documento_sucesso", (name) => {
+    removeDocumentLink(name);
+})

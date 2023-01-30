@@ -1,4 +1,4 @@
-import { atualizarTextoEditor } from "./documento.js";
+import { alertAndRedirect, atualizarTextoEditor } from "./documento.js";
 
 const socket = io();
 
@@ -19,3 +19,7 @@ socket.on("texto_editor_clientes", (text) => {
 export function removeDocument(name) {
     socket.emit("excluir_documento", name)
 }
+
+socket.on("excluir_documento_sucesso", (name) => {
+    alertAndRedirect(name);
+})

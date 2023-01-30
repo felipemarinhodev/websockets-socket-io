@@ -22,3 +22,10 @@ export function atualizarTextoEditor(texto) {
 removeButton.addEventListener("click", () => {
     removeDocument(documentName)
 })
+
+export function alertAndRedirect(name) {
+    if (name === documentName) {
+        alert(`Documento ${name} excluído!`);
+        window.location.href = "/";
+    }
+}
