@@ -1,6 +1,11 @@
+import * as dotenv from 'dotenv'
+dotenv.config();
 import { MongoClient } from 'mongodb';
 
-const client = new MongoClient("mongodb+srv://alura:<password>@alura.7durtf7.mongodb.net/?retryWrites=true&w=majority");
+const SECRET_MONGO = process.env.ALURA_SECRET_MONGO || 'PW'
+console.log("Secret mongo", SECRET_MONGO);
+
+const client = new MongoClient(`mongodb+srv://alura:${SECRET_MONGO}@alura.7durtf7.mongodb.net/?retryWrites=true&w=majority`);
 
 export let documentsCollection;
 
